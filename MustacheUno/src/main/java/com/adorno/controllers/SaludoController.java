@@ -13,7 +13,7 @@ public class SaludoController {
 	@RequestMapping("/basic")
 	public String basic(Model model) {
 		model.addAttribute("name", "World");
-		model.addAttribute("silent", false);
+		model.addAttribute("silent", true);
 		return "basicT";
 	}
 	

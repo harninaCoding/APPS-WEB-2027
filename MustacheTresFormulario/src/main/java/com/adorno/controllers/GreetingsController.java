@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class GreetingsController {
-
+	private String infoCompartida;
 	// para inyectar el servicio hay dos formas
 	// 1 la antigua
 //	@Autowired
@@ -28,9 +28,10 @@ public class GreetingsController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value = "/procesarFormulario", method = RequestMethod.GET)
+	@RequestMapping(value = "/procesarFormulario", method = RequestMethod.POST)
 	public String procesarFormulario(@RequestParam String info, HttpSession sesion) {
 		sesion.setAttribute("infoUsuario", info);
+		infoCompartida = info;
 		return "resultado_formulario";
 	}
 	
@@ -38,7 +39,7 @@ public class GreetingsController {
 	public String mostrarDatos(Model model, HttpSession sesion) {
 		String infoUsuario = (String) sesion.getAttribute("infoUsuario");
 		model.addAttribute("infoUsuario", infoUsuario);
-//		model.addAttribute("infoCompartida", infoCompartida);
+		model.addAttribute("infoCompartida", infoCompartida);
 		return "datos";
 	}
 
