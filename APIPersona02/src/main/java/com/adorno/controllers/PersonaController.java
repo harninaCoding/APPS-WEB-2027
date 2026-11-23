@@ -1,4 +1,4 @@
-package com.adorno;
+package com.adorno.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -43,5 +43,10 @@ public class PersonaController {
 		return personaService.addPersona(persona);
 	}
 	// Necesitamos lalista de las personas con mas de 20 annos
+	@GetMapping("/persona/edad")
+	public List<Persona> findPersonasByEdad20(){
+		return personaService.getByEdad(20);
+	}
+	
 	//Necesitamos la cantidad de personas entre dos edades dadas
 }

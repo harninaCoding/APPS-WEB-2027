@@ -42,4 +42,8 @@ public class PersonaService {
 		}
 		return Optional.empty();
 	}
+	
+	public List<Persona> getByEdad(int edad){
+		return personas.stream().filter(persona->persona.getEdad()>edad).toList();
+	}
 }
