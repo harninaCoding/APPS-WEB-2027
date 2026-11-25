@@ -1,5 +1,7 @@
 package com.adorno.services;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +18,7 @@ class ActividadesServiceImplTest {
 	void testGetActividadesByMonitor() {
 		ActividadesMonitorDTO actividadesByMonitor = actividadesService.getActividadesByMonitor("11111111A");
 		System.out.println(actividadesByMonitor.toString());
+		assertNotNull(actividadesByMonitor);
 	}
 
 }
